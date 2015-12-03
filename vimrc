@@ -1,0 +1,162 @@
+set nocompatible              " be iMproved, required
+set nu!
+"set clipboard+=unnamed
+"set cursorline
+"set cursorcolumn
+"set ignorecase smartcase
+syn on
+filetype off                  " required
+"**********自定义区
+"win 120 120
+"winp 0 0
+map <silent> <leader>h :noh<CR>
+map <silent> <leader>tl :TlistToggle<CR>
+map <silent> <leader>bf :BufExplorer<CR>
+"*****************
+"set t_Co=256
+set background=dark
+set guioptions-=r
+set guioptions-=L
+set autoindent
+set shiftwidth=4
+set tabstop=4
+set so=5
+set softtabstop=4
+" set guifont=Menlo\ Regular:h12
+set expandtab
+set directory=~/Desktop/WorkStation/vim/vimtmp/
+set undodir =~/Desktop/WorkStation/vim/vimtmp/
+%retab!
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk
+"cscope 修改区
+"set cscopequickfix=s-,c-,d-,i-,t-,e-
+" cs add $VIM\tags\cscope.out
+nmap <c-s-f> :cs find s <c-r>=expand("<cword>") <cR><cr>
+map <d-i> ==j
+imap <c-f> <right>
+imap <c-b> <left>
+imap <c-e> <end>
+imap <c-a> <home>
+cmap <c-f> <right>
+cmap <c-b> <left>
+cmap <c-e> <end>
+cmap <c-a> <home>
+
+nmap <D-2> gccj
+imap <D-2> <c-o>gcc
+vmap <D-2> gc
+
+set nrformats=
+set wildmode=longest,list
+
+
+"let Tlist_Use_Right_Window=1         
+"*****************
+"Toggle Menu and Toolbar
+set tags=$VIM\tags\tags
+set guioptions-=m
+set guioptions-=T
+"*****************
+
+source $VIMRUNTIME/vimrc_example.vim
+" source $VIMRUNTIME/mswin.vim
+" behave mswin
+
+"*****************
+
+"set the runtime path to include Vundle and initialize
+set rtp+=~/Desktop/WorkStation/vim/vundle/vundle/
+let path='~/Desktop/WorkStation/vim/vundle/'
+call vundle#rc(path)
+" alternatively, pass a path where Vundle should install bundles
+"let path = '~/some/path/here'
+"call vundle#rc(path)
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+Bundle 'ervandew/supertab'
+Bundle 'https://github.com/bling/vim-airline.git'
+
+" The following are examples of different formats supported.
+" Keep bundle commands between here and filetype plugin indent on.
+" scripts on GitHub repos
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-rails.git'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" scripts from http://vim-scripts.org/vim/scripts.html
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+" scripts gitnot on GitHub
+" git repos on your local machine (i.e. when working on your own plugin)
+" Bundle 'file:///home/gmarik/path/to/plugin'
+" ...
+
+"*****************
+Bundle 'https://github.com/jimenezrick/vimerl.git'
+Bundle 'https://github.com/vim-scripts/taglist.vim'
+"Bundle 'https://github.com/wookiehangover/jshint.vim'
+Bundle 'https://github.com/jelera/vim-javascript-syntax.git'
+Bundle 'https://github.com/altercation/vim-colors-solarized.git'
+Bundle 'https://github.com/jlanzarotta/bufexplorer.git'
+Bundle 'https://github.com/vim-scripts/mru.vim'
+Bundle 'https://github.com/vim-scripts/AutoComplPop.git'
+Bundle 'https://github.com/vim-scripts/ReplaceWithRegister.git'
+Bundle 'https://github.com/godlygeek/tabular.git'
+Bundle 'http://github.com/tpope/vim-surround.git'
+Bundle 'https://github.com/tpope/vim-repeat'
+Bundle 'https://github.com/terryma/vim-multiple-cursors.git'
+Bundle 'https://github.com/terryma/vim-expand-region.git'
+Bundle 'https://github.com/vim-scripts/erlang-motions.vim'
+Bundle 'https://github.com/vim-scripts/DoxygenToolkit.vim'
+Bundle 'https://github.com/tpope/vim-commentary'
+" Bundle 'https://github.com/vim-scripts/Auto-Pairs'
+Bundle 'https://github.com/mbbill/undotree'
+" Bundle 'https://github.com/bingvim/visualmark'
+Bundle 'https://github.com/vim-scripts/DrawIt'
+Bundle 'https://github.com/mbriggs/mark.vim'
+Bundle 'https://github.com/Chiel92/vim-autoformat'
+Bundle 'https://github.com/vim-scripts/vim-AHKcomplete'
+
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:DoxygenToolkit_commentType = "c"
+let g:EasyMotion_leader_key = '<Space>'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:SuperTabDefaultCompletionType = "<c-x><c-]>"
+let Tlist_Auto_Open=0
+let Tlist_Show_One_File=1   
+let Tlist_Show_Menu=1
+let Tlist_Exit_OnlyWindow=1  
+" let g:AutoPairsFlyMode=1
+"Bundle 'https://github.com/scrooloose/syntastic'
+"*****************
+filetype plugin indent on     " required
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+
+
+
+set nobackup
+set autoread
+set history=1000
+set hidden
+
+if has("gui_running")
+    colorscheme solarized 
+else
+    colorscheme desert
+endif
+
+abbr jst ~/Desktop/Cocos2d-js/samples/js-tests/src/
