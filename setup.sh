@@ -4,6 +4,7 @@ dir=${dir/\//}
 dir=${dir/\//:\/}
 echo $dir
 sed -e "s@rtp+=.*@rtp+=$dir/vundle/vundle@" \
+    -e "s@path=.*@path=\'$dir/tmp\'@" \
     -e "s@directory=.*@directory=$dir/tmp@" \
     -e "s@undodir=.*@undodir=$dir/tmp@" \
     vimrc.in > vimrc
